@@ -2,4 +2,12 @@
 
 source "https://rubygems.org"
 
-# gem "rails"
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+gem "dotenv"
+gem "omniauth-twitter"
+gem "omniauth-twitter2"
+gem "sinatra"
+gem "webrick"
