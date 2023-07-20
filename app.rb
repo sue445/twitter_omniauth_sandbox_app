@@ -6,6 +6,7 @@ require "omniauth/twitter2"
 
 require "dotenv/load"
 
+# https://developer.twitter.com/en/docs/authentication/oauth-2-0/authorization-code
 TWITTER_V2_SCOPE = "tweet.read tweet.write users.read offline.access"
 
 use Rack::Session::Cookie
@@ -17,7 +18,6 @@ use OmniAuth::Builder do
   if ENV["TWITTER_V2_CLIENT_ID"] && ENV["TWITTER_V2_CLIENT_SECRET"]
     provider :twitter2, ENV["TWITTER_V2_CLIENT_ID"], ENV["TWITTER_V2_CLIENT_SECRET"],
              callback_path: "/auth/twitter2/callback",
-             # https://developer.twitter.com/en/docs/authentication/oauth-2-0/authorization-code
              scope: TWITTER_V2_SCOPE
   end
 end
